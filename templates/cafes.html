@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for cafe in all_cafes %}    
+    <div class="container my-5">
+        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+          <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+            <h1 class="display-4 fw-bold lh-1 fs-2">{{ cafe.name }}</h1>
+            <p class="lead fs-3">{{ cafe.location }}</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+                <a class="btn btn-outline-warning btn-lg px-4 me-md-2" href="{{ url_for('show_cafe', cafe_id=cafe.id) }}" role="button">Check It Out</a>
+            </div>
+          </div>
+          <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+              <img class="rounded-lg-3" src="{{cafe.img_url}}" alt="Cafe " width="380" height="305">
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    
+{% endblock %}

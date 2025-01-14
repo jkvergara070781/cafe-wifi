@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="px-4 py-5 my-5 text-center">
+    <img class="d-block mx-auto mb-4" src="{{cafe.img_url}}" alt="" width="460" height="385">
+    <h1 class="display-5 fw-bold fs-2">{{ cafe.name }}</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Location: <a href="{{cafe.map_url}}">{{ cafe.location }}</a></p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Features</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Has Sockets</td>
+            <td>{{ cafe.has_sockets }}</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Has Toilets</td>
+            <td>{{ cafe.has_toilet }}</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Has Wifi</td>
+            <td>{{ cafe.has_wifi }}</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Can Take Calls</td>
+            <td>{{ cafe.can_take_calls }}</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>Seats</td>
+            <td>{{ cafe.seats }}</td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>Coffee Price</td>
+            <td>{{ cafe.coffee_price }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a class="btn btn-outline-warning btn-lg px-4 me-md-2" href="{{ url_for('update_cafe', cafe_id=cafe.id) }}" role="button">Update Cafe Details</a>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
